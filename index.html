@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <link rel="icon" href="todo.webp">
+    <title>TODO LIST</title>
+</head>
+
+<body>
+
+    <div class="title">
+        <h1>TO-DO LIST</h1>
+        <br>
+        <h4>Today</h4>
+        <h3 id="dat">
+            </h4>
+    </div>
+    <div class="input">
+        <input id="task" style="height: 50px; width: 25%;font-size: 25px;" type="text"
+            placeholder="Add a New Task"><button onclick="add()">➕</button>
+    </div>
+    <div id="box">
+    </div>
+    <script>
+    var box = document.getElementById("box")
+    var inp = document.getElementById("task")
+    var p = document.getElementById("name")
+    function add() {
+        var div = document.createElement("div")
+        div.className = "container"
+        div.innerHTML = "<div class='items'><p id='name'></p></div><button id='btn' onclick='remove(event)'>✖️</button>"
+        var p = div.querySelector('#name');
+        box.append(div)
+        p.textContent = inp.value
+
+    }
+    function remove(event) {
+        event.target.parentElement.remove()
+    }
+    var to=document.getElementById("dat")
+    var today = new Date().toLocaleDateString()+"📅";
+    to.textContent=today
+</script>
+</body>
+
+</html>
